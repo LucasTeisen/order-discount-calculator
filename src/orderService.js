@@ -8,21 +8,20 @@
 // Exporte a função usando module.exports."
 
 function calculateFinalOrderValue(orderValue, discountPercentage) {
+  // Ignora desconto inválido
+  if (discountPercentage < 0 || discountPercentage > 100) {
+    return orderValue;
+  }
+
   let finalValue = orderValue;
 
-  // Aplica desconto apenas se:
-  // - pedido > 100
-  // - desconto válido (0 a 100)
-  if (
-    orderValue > 100 &&
-    discountPercentage >= 0 &&
-    discountPercentage <= 100
-  ) {
+  // Aplica desconto apenas se pedido > 100
+  if (orderValue > 100) {
     const discount = (orderValue * discountPercentage) / 100;
     finalValue = orderValue - discount;
   }
 
-  // Garante que nunca seja negativo
+  // Garante que nunca seja negativo (somente para desconto válido)
   if (finalValue < 0) {
     return 0;
   }
