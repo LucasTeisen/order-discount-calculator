@@ -7,19 +7,27 @@
 // A função nunca deve retornar um valor negativo.
 // Exporte a função usando module.exports."
 
-function calculateFinalOrderValue(amount, discountPercentage) {
-  if (amount <= 100) {
-    return amount;
+function calculateFinalOrderValue(orderValue, discountPercentage) {
+  let finalValue = orderValue;
+
+  // Aplica desconto apenas se:
+  // - pedido > 100
+  // - desconto válido (0 a 100)
+  if (
+    orderValue > 100 &&
+    discountPercentage >= 0 &&
+    discountPercentage <= 100
+  ) {
+    const discount = (orderValue * discountPercentage) / 100;
+    finalValue = orderValue - discount;
   }
 
-  if (discountPercentage < 0 || discountPercentage > 100) {
-    return amount;
+  // Garante que nunca seja negativo
+  if (finalValue < 0) {
+    return 0;
   }
 
-  const discount = (amount * discountPercentage) / 100;
-  const finalValue = amount - discount;
-
-  return Math.max(0, finalValue);
+  return finalValue;
 }
 
 module.exports = { calculateFinalOrderValue };
