@@ -1,88 +1,80 @@
-# Order Discount Calculator
+# AI-Driven Software Engineering - IA na Prática: Acelerando o Desenvolvimento e Garantindo a Qualidade com um Fluxo de Trabalho Automatizado por IA
 
-A simple and efficient Node.js service for calculating order discounts.
+## 📌 Contexto do Problema
 
-## Features
+Este projeto simula um cenário real enfrentado por uma empresa de tecnologia que desenvolve uma ferramenta de colaboração online. Com o crescimento acelerado da empresa, a equipe de desenvolvimento passou a sofrer forte pressão para entregar novas funcionalidades em prazos cada vez menores, o que gerou um conflito direto entre velocidade de entrega e qualidade do software.
 
-- Calculate discount amount
-- Apply discount to total amount
-- Calculate total with discount for multiple items
-- Input validation
-- Comprehensive test coverage
+A equipe é formada majoritariamente por desenvolvedores de nível júnior e pleno, tecnicamente capazes, porém com dificuldades em manter uma boa cobertura de testes e revisões de código consistentes. Como consequência, bugs começaram a ser descobertos tardiamente, aumentando o custo de correção e impactando negativamente a experiência dos usuários finais.
 
-## Installation
+Os principais problemas identificados foram:
+- Lentidão no desenvolvimento devido à escrita repetitiva de código básico;
+- Baixa cobertura de testes unitários;
+- Ciclo de feedback lento, com detecção tardia de erros;
+- Inconsistência de padrões na base de código.
 
-```bash
-npm install
-```
+---
 
-## Usage
+## 🤖 O Papel da Inteligência Artificial no Desenvolvimento de Software
 
-```javascript
-const OrderService = require('./src/orderService');
+A Inteligência Artificial vem se consolidando como uma aliada estratégica no ciclo de desenvolvimento de software moderno. Ferramentas como o GitHub Copilot auxiliam diretamente na geração de código, criação de testes automatizados e entendimento de trechos complexos, reduzindo o esforço manual e aumentando a produtividade dos desenvolvedores.
 
-const orderService = new OrderService();
+Além disso, a automação de pipelines de integração contínua (CI) com GitHub Actions permite que testes sejam executados automaticamente a cada alteração no código, garantindo feedback rápido e confiável sobre a qualidade da aplicação.
 
-// Calculate discount
-const discount = orderService.calculateDiscount(100, 10); // 10
+É importante destacar que, conforme discutido por Martin Fowler, a cobertura de testes não deve ser vista apenas como uma métrica quantitativa, mas como um mecanismo para garantir confiança e segurança na evolução do sistema.
 
-// Apply discount
-const total = orderService.applyDiscount(100, 10); // 90
+---
 
-// Calculate total with items
-const items = [
-  { price: 50, quantity: 2 },
-  { price: 25, quantity: 1 }
-];
-const finalTotal = orderService.calculateTotal(items, 10); // 112.5
-```
+## 🛠️ Solução Proposta
 
-## Testing
+A solução implementada combina o uso de duas ferramentas principais:
 
-Run the test suite:
+- **GitHub Copilot**: Utilizado para acelerar a criação da lógica de negócio e dos testes unitários, permitindo que a equipe foque mais nas regras de negócio e menos em código repetitivo.
+- **GitHub Actions**: Responsável por automatizar o processo de build e execução dos testes a cada push no repositório, garantindo qualidade contínua.
 
-```bash
-npm test
-```
+Essa combinação permitiu aumentar a velocidade de desenvolvimento sem comprometer a qualidade do software entregue.
 
-Run tests in watch mode:
+---
 
-```bash
-npm run test:watch
-```
+## 📂 Descrição do Projeto
 
-Generate coverage report:
+Este repositório contém um projeto simples em Node.js que implementa uma função de cálculo de valor final de pedidos com aplicação de descontos, incluindo regras de negócio e validações.
 
-```bash
-npm run test:coverage
-```
+### 🔹 Funcionalidade Principal
+- Cálculo do valor final de um pedido com base em um percentual de desconto;
+- Aplicação de desconto apenas para pedidos acima de um determinado valor;
+- Validação de descontos inválidos;
+- Garantia de que o valor final nunca seja negativo.
 
-## API
+A função principal e seus testes foram gerados com auxílio do GitHub Copilot, com comentários no código indicando os prompts utilizados.
 
-### `calculateDiscount(amount, discountPercentage)`
+---
 
-Calculates the discount amount for a given amount and percentage.
+## 🧪 Testes Automatizados
 
-- `amount` (number): The base amount
-- `discountPercentage` (number): The discount percentage (0-100)
-- Returns: (number) The discount amount
+Os testes unitários foram implementados utilizando o framework **Jest**, cobrindo os principais cenários da regra de negócio. A execução dos testes é automatizada através de um pipeline de CI configurado com GitHub Actions.
 
-### `applyDiscount(amount, discountPercentage)`
+### ✔️ Pipeline de CI
+- Instalação automática das dependências;
+- Execução dos testes a cada push ou pull request;
+- Feedback imediato sobre falhas no código.
 
-Applies a discount to an amount and returns the final total.
+---
 
-- `amount` (number): The base amount
-- `discountPercentage` (number): The discount percentage (0-100)
-- Returns: (number) The amount after discount
+## 🚀 Considerações Finais
 
-### `calculateTotal(items, discountPercentage)`
+A adoção de ferramentas baseadas em Inteligência Artificial no fluxo de trabalho de desenvolvimento demonstrou ser uma estratégia eficaz para equilibrar velocidade e qualidade. O GitHub Copilot reduziu o tempo de escrita de código e testes, enquanto o GitHub Actions garantiu a execução contínua de verificações de qualidade.
 
-Calculates the total for multiple items with an optional discount.
+Esse modelo de desenvolvimento assistido por IA representa uma abordagem moderna, escalável e alinhada às melhores práticas da engenharia de software atual.
 
-- `items` (array): Array of items with `price` and `quantity`
-- `discountPercentage` (number): The discount percentage (default: 0)
-- Returns: (number) The total amount after discount
+---
 
-## License
+## 📚 Referências
 
-MIT
+- GitHub Copilot – Writing and Explaining Tests  
+  https://github.com/features/copilot#writing-and-explaining-tests
+
+- GitHub Actions – Building and Testing Node.js  
+  https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+- Fowler, Martin. *Test Coverage*  
+  https://martinfowler.com/bliki/TestCoverage.html
