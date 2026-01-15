@@ -29,8 +29,8 @@ describe('calculateFinalOrderValue', () => {
     expect(result).toBe(150);
   });
 
-test('Garante que o valor final nunca seja negativo', () => {
-  const result = calculateFinalOrderValue(200, 150);
+test('Garante que o valor final nunca seja negativo com desconto válido', () => {
+  const result = calculateFinalOrderValue(200, 100);
   expect(result).toBe(0);
-    });
+  });
 });
