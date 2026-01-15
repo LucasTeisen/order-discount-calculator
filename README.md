@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/LucasTeisen/order-discount-calculator/actions/workflows/node.yml/badge.svg)](https://github.com/LucasTeisen/order-discount-calculator/actions/workflows/node.yml)
+
 # AI-Driven Software Engineering - IA na Prática: Acelerando o Desenvolvimento e Garantindo a Qualidade com um Fluxo de Trabalho Automatizado por IA
 
 ## 📌 Contexto do Problema
